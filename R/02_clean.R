@@ -26,3 +26,7 @@ log_rows <- rbind(log_rows, data.table(step = "valid genre", n = nrow(games)))
 
 games[, total_reviews := Positive + Negative]
 games[, positive_ratio := Positive / total_reviews]
+
+games <- games[total_reviews >= 50]
+
+log_rows <- rbind(log_rows, data.table(step = "min 50 reviews", n = nrow(games)))
