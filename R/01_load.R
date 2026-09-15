@@ -14,3 +14,17 @@ setnames(games, c(
   "Developers", "Publishers", "Categories", "Genres", "Tags",
   "Screenshots", "Movies"
 ))
+
+
+keep <- c("AppID", "Name", "Release date", "Price", "Positive", "Negative",
+          "Genres", "Categories", "Estimated owners", "Peak CCU",
+          "Metacritic score", "Achievements", "Windows", "Mac", "Linux",
+          "Supported languages", "DLC count")
+
+games_small <- games[, ..keep]
+
+dim(games_small)
+
+
+fwrite(games_small, "data/processed/games_selected.csv")
+file.size("data/processed/games_selected.csv") / 1024^2
