@@ -30,3 +30,10 @@ games[, positive_ratio := Positive / total_reviews]
 games <- games[total_reviews >= 50]
 
 log_rows <- rbind(log_rows, data.table(step = "min 50 reviews", n = nrow(games)))
+
+games <- games[Price > 0]
+
+log_rows <- rbind(log_rows, data.table(step = "paid games only", n = nrow(games)))
+
+fwrite(games, "data/processed/games_clean.csv")
+fwrite(log_rows, "outputs/tables/sample_attrition.csv")
