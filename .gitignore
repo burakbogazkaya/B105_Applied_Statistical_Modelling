@@ -47,3 +47,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# macOS
+.DS_Store
+
+# raw data — too large for GitHub, see data/raw/README.md
+data/raw/*.csv
+data/raw/*.json
+
+# intermediate
+data/processed/games_selected.csv
